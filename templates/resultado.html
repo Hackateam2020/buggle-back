@@ -1,14 +1,67 @@
-<!doctype html>
-<html>
-    <body>
-        {% if concedido %}
-            <h1>¡Estupendo, {{ name }}!</h1>
-            <p>Pronto te contactará un empleado para hablar de tu crédito.</p>
-        {% else %}
-            <h1>Vaya, {{ name }}</h1>
-            <p>Creemos que hay algunas cosas que podrías hacer para hacerte maś apto.</p>
-        {% endif %}
-        
-        <p><a href="/">Volver</a></p>
-    </body>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Buggles</title>
+  <link rel="stylesheet" href="static/css/reset.css">
+  <link rel="stylesheet" href="static/css/styles.css">
+  <link rel="icon" href="images/Oval.png">
+  <link href="https://fonts.googleapis.com/css?family=Goudy+Bookletter+1911|Prata&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+  <header>
+    <div >
+      <a class="atras" href="">Atrás</a>
+    </div>
+  </header>
+
+
+  <main>
+    <div class="top-container">
+
+      <div class="preguntas">
+      
+      
+    {% if concedido %}
+    {% set img = 'static/images/BugglesSuperFeliz.png' %}
+        <h1>¡Estupendo, {{ name }}!</h1>
+        <p>Pronto te contactará un empleado para hablar de tu crédito.</p>
+    {% else %}
+    {% set img = 'static/images/BugglesTriste.png' %}
+        <h1>Vaya, {{ name }}</h1>
+        <p>Creemos que hay algunas cosas que podrías hacer para hacerte más apto.</p>
+        <p>No obstante, te ofrecemos la posibilidad de acceder a un crédito más adelante, gracias a nuestra iniciativa de educación financiera. Haz click <b>aquí</b> para empezar.</p>
+    {% endif %}
+
+    </div>
+
+      <div>
+        <img class="buggles" src="{{img}}" alt="Buggles asistente personal para conseguir tu crédito">
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="bottom-container">
+      <a class="footer-link" href="">Web de BBVA</a>
+      <a class="footer-link" href="">FB de BBVA</a>
+      <a class="footer-link" href="">Insta de BBVA</a>
+      <p class="copyright">© 2020 Hacka-Team</p>
+    </div>
+  </footer>
+
+  </div>
+
+</body>
+
 </html>
+
+
+
+        
