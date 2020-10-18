@@ -1,40 +1,55 @@
-<!doctype html>
-<html>
-    <body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/main.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="body">
+      <div class="stack">
+        <img src="../static/img/happy.svg" />
         <div id="pregunta1" class="pregunta">
-            <h1>¿Bebe usted café?</h1>
-            <p>Dígame que lo toma sin leche.</p>
-            <button onClick="mostrarPreg('pregunta2')">Si</button>
-            <button onClick="mostrarPreg('pregunta2')">No</button>
+          <h1>¿Bebe usted café?</h1>
+          <p>Dígame que lo toma sin leche.</p>
         </div>
-        
+        <div class="button-container">
+          <button onclick="mostrarPreg('pregunta2')" class="positive">
+            Si
+          </button>
+          <button onclick="mostrarPreg('pregunta2')" class="negative">
+            No
+          </button>
+        </div>
+
         <div id="pregunta2" class="pregunta" style="display: none">
-            <h1>¿Bebe usted té?</h1>
-            <p>Me vale si es manzanilla.</p>
-            
-            <button onClick="mostrarPreg('pregunta3')">Si</button>
-            <button onClick="mostrarPreg('pregunta3')">No</button>
+          <h1>¿Bebe usted té?</h1>
+          <p>Me vale si es manzanilla.</p>
+
+          <button onclick="mostrarPreg('pregunta3')">Si</button>
+          <button onclick="mostrarPreg('pregunta3')">No</button>
         </div>
-        
+
         <div id="pregunta3" class="pregunta">
-            <h1>¿Bebe usted cerveza?</h1>
-            <p>Si es así, la próxima a mi salud.</p>
-            
-            <a href="/"><button>Si</button></a>
-            <a href="/"><button>No</button></a>
+          <h1>¿Bebe usted cerveza?</h1>
+          <p>Si es así, la próxima a mi salud.</p>
+
+          <a href="/"><button>Si</button></a>
+          <a href="/"><button>No</button></a>
         </div>
-        
-    </body>
-    
-    <script>
-        function mostrarPreg(x){
-            pregs = document.getElementsByClassName('pregunta');
-            for (let i=0; i < pregs.length; i++){
-                pregs[i].style.display = 'none';
-            }
-            document.getElementById(x).style.display = 'block';
-        }
-        mostrarPreg('pregunta1');
-    </script>
-    
+      </div>
+    </div>
+  </body>
+
+  <script>
+    function mostrarPreg(x) {
+      pregs = document.getElementsByClassName("pregunta");
+      for (let i = 0; i < pregs.length; i++) {
+        pregs[i].style.display = "none";
+      }
+      document.getElementById(x).style.display = "block";
+    }
+    mostrarPreg("pregunta1");
+  </script>
 </html>
