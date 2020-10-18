@@ -1,5 +1,8 @@
 from flask import *
 import json
+
+import model.model as model
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -15,7 +18,7 @@ def login():
 
 @app.route('/proceso', methods = ['GET'])
 def proceso():
-    user = request.cookies.get('user')
+    user = request.cookies.get('userID')
     with open('data/preguntas.json','r') as f:
         pj = json.load(f)
     return render_template('proceso.html', 
@@ -24,11 +27,11 @@ def proceso():
 
 @app.route('/predict', methods = ['POST','GET'])
 def predict():
-    print('=== /predict/ ===')
-    print(str(request))
-    response = 'Not implemented yet: prediction to be made with<br>'
-    response += str(request.form)
-    response += '<br><a href="\\">Inicio</a>'
+    user = request.cookies.get('userID')
+    result = model.prediction(request.form)
+    response = render_template('resultado.html', 
+                               concedido = result,
+                               name = user)
     return response
 
 if __name__ == '__main__':
