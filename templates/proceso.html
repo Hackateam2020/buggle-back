@@ -1,15 +1,20 @@
 <!doctype html>
 <html>
+
+    <head>
+        <link rel="stylesheet" href="/static/main.css">
+    </head>
     <body>
+        <h1>Dime, {{ name }}</h1>
         <div id="pregunta1" class="pregunta">
-            <h1>¿Bebe usted café?</h1>
+            <h2>¿Bebe usted café?</h2>
             <p>Dígame que lo toma sin leche.</p>
             <button onClick="mostrarPreg('pregunta2')">Si</button>
             <button onClick="mostrarPreg('pregunta2')">No</button>
         </div>
         
         <div id="pregunta2" class="pregunta" style="display: none">
-            <h1>¿Bebe usted té?</h1>
+            <h2>¿Bebe usted té?</h2>
             <p>Me vale si es manzanilla.</p>
             
             <button onClick="mostrarPreg('pregunta3')">Si</button>
@@ -17,7 +22,7 @@
         </div>
         
         <div id="pregunta3" class="pregunta">
-            <h1>¿Bebe usted cerveza?</h1>
+            <h2>¿Bebe usted cerveza?</h2>
             <p>Si es así, la próxima a mi salud.</p>
             
             <a href="/"><button>Si</button></a>

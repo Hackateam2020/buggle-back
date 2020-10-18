@@ -1,18 +1,21 @@
-from flask import Flask, request, render_template
+from flask import *
 app = Flask(__name__)
 
 @app.route('/')
 def index():
    return render_template('index.html')
 
-@app.route('/login', methods = ['POST','GET'])
+@app.route('/login', methods = ['POST'])
 def login():
-    form_name = request.form['name']
-    return render_template('bienvenida.html', name = form_name)
+    user = request.form['name']
+    resp = make_response(render_template('bienvenida.html', name = user))
+    resp.set_cookie('userID',user)
+    return resp
 
 @app.route('/proceso', methods = ['GET'])
 def proceso():
-    return render_template('proceso.html')
+    user = request.cookies.get('user')
+    return render_template('proceso.html', name = user)
 
 @app.route('/predict', methods = ['POST','GET'])
 def predict():
