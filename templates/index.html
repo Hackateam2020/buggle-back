@@ -1,11 +1,59 @@
-<!doctype html>
-<html>
-    <body>
-        <h1>Hello there</h1>
-        <form action="/login" method="post">
-            <p>¿Cómo me dirijo a usted?</p>
-            <p><input type = "text" name = "name" /></p>
-            <p><input type = "submit" value = "OK" /></p>
-        </form>
-    </body>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Buggles</title>
+  <link rel="stylesheet" href="static/css/reset.css">
+  <link rel="stylesheet" href="static/css/styles.css">
+  <link rel="icon" href="images/Oval.png">
+  <link href="https://fonts.googleapis.com/css?family=Goudy+Bookletter+1911|Prata&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+  <header>
+    <div >
+      <a class="atras" href="">Atrás</a>
+    </div>
+  </header>
+
+
+  <main>
+    <div class="top-container">
+
+      <div class="preguntas">
+      <h1>Bienvenido</h1>
+      <h2>Soy Buggles y te haré unas preguntas</h2>
+      
+      <form action="/proceso" method="post">
+        <p>¿Cómo me dirijo a usted?</p>
+        <p><input type = "text" name = "name" /></p>
+        <p><input type = "submit" value = "¡Empecemos!" /></p>
+      </form>
+
+    </div>
+
+      <div>
+        <img class="buggles" src="static/images/BugglesNormal.png" alt="Buggles asistente personal para conseguir tu crédito">
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="bottom-container">
+      <a class="footer-link" href="">Web de BBVA</a>
+      <a class="footer-link" href="">FB de BBVA</a>
+      <a class="footer-link" href="">Insta de BBVA</a>
+      <p class="copyright">© 2020 Hacka-Team</p>
+    </div>
+  </footer>
+
+  </div>
+
+</body>
+
 </html>

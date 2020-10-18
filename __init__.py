@@ -16,14 +16,16 @@ def login():
     resp.set_cookie('userID',user)
     return resp
 
-@app.route('/proceso', methods = ['GET'])
+@app.route('/proceso', methods = ['GET','POST'])
 def proceso():
-    user = request.cookies.get('userID')
+    user = request.form['name']
     with open('data/preguntas.json','r') as f:
         pj = json.load(f)
-    return render_template('proceso.html', 
+    resp = make_response(render_template('proceso.html', 
                            name = user, 
-                           preguntas = pj)
+                           preguntas = pj))
+    resp.set_cookie('userID',user)
+    return resp
 
 @app.route('/predict', methods = ['POST','GET'])
 def predict():

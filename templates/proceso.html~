@@ -11,26 +11,19 @@
 
 </head>
 
+<header>
+<div >
+    <a class="atras" href="">Atrás</a>
+</div>
+</header>
+
 <body>
-
-
-  <header>
-    <div >
-      <a class="atras" href="/">Atrás</a>
-    </div>
-  </header>
-
-
-  <main>
-    <div class="top-container">
-
-      <div class="preguntas">
-      <form action="/predict" method="post" class="preguntas">
+    <form action="/predict" method="post" class="preguntas">
         <h1>{{ name }}</h1>
         {% for pregunta in preguntas: %}
             <div id="pregunta{{loop.index}}" class="pregunta">
                 <h2>{{ pregunta.get('pregunta', '¿?') }}</h2>
-                <!--<p>{{ pregunta.get('texto', '...') }}</p>-->
+                <p>{{ pregunta.get('texto', '...') }}</p>
             <p>
             {# TIPO DE PREGUNTA #}    
             {% if pregunta.type == 'number' %}
@@ -49,34 +42,11 @@
             {% if preguntas|length == loop.index %}
                 <input type="submit" value="Predecir">
             {% else %}
-                <a onClick="mostrarPreg({{loop.index+1}})">
-                <h3> Siguiente </h3>
-                </a>
+                <a onClick="mostrarPreg({{loop.index+1}})">Siguiente</a>
             {% endif %}
             </div>
         {% endfor %}
     </form>
-
-    </div>
-
-      <div>
-        <img class="buggles" src="static/images/BugglesNormal.png" alt="Buggles asistente personal para conseguir tu crédito">
-      </div>
-    </div>
-
-  </main>
-
-  <footer>
-    <div class="bottom-container">
-      <a class="footer-link" href="">Web de BBVA</a>
-      <a class="footer-link" href="">FB de BBVA</a>
-      <a class="footer-link" href="">Insta de BBVA</a>
-      <p class="copyright">© 2020 Hacka-Team</p>
-    </div>
-  </footer>
-
-  </div>
-
 </body>
 
 <script>
@@ -90,4 +60,5 @@
     }
     mostrarPreg(1);
 </script>
+    
 </html>

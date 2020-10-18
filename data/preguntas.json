@@ -1,25 +1,125 @@
 [
-{
-    "pregunta":"¿Bebes café?",
-    "texto": "Dime que lo tomas sin leche.",
-    "value": "cafe",
+    {
+    "pregunta": "Para Buggles usted luce como un veinteañero, si no es indiscreción ¿En qué año nació?",
+    "value": "año",
+    "type":"number" 
+    },
+    {
+    "pregunta":"Buggles es de género masculino, y usted cómo es?",
+    "value": "género",
     "type":"select",
     "options":[
-        "negro",
-        "con leche",
-        "ninguno"
+        "masculino",
+        "femenino"
+        ]
+},
+
+{
+    "pregunta":"Buggles está buscando su media naranja en estos momentos, ¿usted en qué estado se encuentra?",
+    "value": "estado",
+    "type":"select",
+    "options":[
+        "casado",
+        "soltero",
+        "viudo",
+        "divorciado"
+        ]
+},
+    {
+    "pregunta":"El Perú es un país con una gran diversidad, a Buggles le gustaría saber, ¿a qué se dedica usted?",
+    "value": "sector",
+    "type":"select",
+    "options":[
+        "Abogados",
+        "Administración pública",
+        "Agroindustria y ganadería",
+        "Alquileres (maquinaria)",
+        "Automotriz",
+        "Bebidas",
+        "Caucho y plástico",
+        "Comercializadoras",
+        "Constructoras",
+        "Consultorías y servicios",
+        "Correos",
+        "Curtiduría",
+        "Editoriales",
+        "Educación",
+        "Energía y agua",
+        "Esparcimiento",
+        "Forestal y silvicultura",
+        "Hidrocarburos",
+        "Impresiones",
+        "Industria alimentaria",
+        "Informática",
+        "Inmobiliarias",
+        "Intermediación financiera",
+        "Investigación y desarrollo",
+        "Laboratorios",
+        "Otros"
     ]
 },
-{
-    "pregunta":"¿Bebes té?",
-    "texto": "Me vale manzanilla.",
-    "value": "te",
-    "type":"text"
+    {
+    "pregunta":"Estamos en un momento muy complicado, y por eso Buggles quiere saber si su empresa está en funcionamiento en estos momentos.",
+    "value": "funcionamiento",
+    "type":"select",
+    "options":[
+        "si",
+        "no"]
 },
-{
-    "pregunta":"¿Bebes cerveza?",
-    "texto": "Indica cuánto te gusta.",
-    "value": "cerveza",
+    {
+    "pregunta":"Para asesorale mejor Buggles necesita una aproximación de sus ingresos mensuales.",
+    "value": "ingresos",
     "type":"number"
+},
+    {
+    "pregunta":"Los bancos tienen muchos productos que ofrecer. Buggles quiere saber qué es lo que usted necesita.",
+    "value": "productos",
+    "type":"select",
+    "options":[
+        "Tarjeta de crédito",
+        "Préstamo hipotecario",
+        "Cuenta corriente",
+        "Comercio exterio",
+        "Descuento",
+        "Factoring",
+        "Leasing",
+        "Préstamo libre disponibilidad",
+        "Vehicular",
+        "Otros"  ]
+},
+    {
+    "pregunta":"Buggles es inseparable de su celular y quiere saber si usted lo usa también para tratar con su banco.",
+    "value": "celular",
+    "type":"select",
+    "options":[
+        "si",
+        "no"]
+},
+    {
+    "pregunta":"En relación a su situación bancaria, ¿Le han concedido anteriormente un crédito?.",
+    "value": "crédito",
+    "type":"select",
+    "options":[
+        "si",
+        "no"]
+},
+    {
+    "pregunta":"A todos nos pueden surgir contratiempos ¿Ha tenido algún problema con su cuota con su banco?.",
+    "value": "deudabanco",
+    "type":"select",
+    "options":[
+        "si",
+        "no"]
+},
+    {
+    "pregunta":"Finalmente, Buggles quiere saber si está al día con el SUNAT.",
+    "value": "deudasunat",
+    "type":"select",
+    "options":[
+        "si",
+        "no"]
 }
+
 ]
+
+
