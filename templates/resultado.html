@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+    <body>
+        {% if concedido %}
+            <h1>¡Estupendo, {{ name }}!</h1>
+            <p>Pronto te contactará un empleado para hablar de tu crédito.</p>
+        {% else %}
+            <h1>Vaya, {{ name }}</h1>
+            <p>Creemos que hay algunas cosas que podrías hacer para hacerte maś apto.</p>
+        {% endif %}
+        
+        <p><a href="/">Volver</a></p>
+    </body>
+</html>
