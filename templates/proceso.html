@@ -5,41 +5,57 @@
         <link rel="stylesheet" href="/static/main.css">
     </head>
     <body>
-        <h1>Dime, {{ name }}</h1>
-        <div id="pregunta1" class="pregunta">
-            <h2>¿Bebe usted café?</h2>
-            <p>Dígame que lo toma sin leche.</p>
-            <button onClick="mostrarPreg('pregunta2')">Si</button>
-            <button onClick="mostrarPreg('pregunta2')">No</button>
-        </div>
-        
-        <div id="pregunta2" class="pregunta" style="display: none">
-            <h2>¿Bebe usted té?</h2>
-            <p>Me vale si es manzanilla.</p>
+        <form action="/predict" method="post">
+            <!-- PREGUNTA 1 -->
+            <h1>Dime, {{ name }}</h1>
+            <div id="pregunta1" class="pregunta">
+                <h2>¿Bebe usted café?</h2>
+                <p>Dígame que lo toma sin leche.</p>
+                
+                <input name="cafe" type="radio" value="si"> Sí
+                <input name="cafe" type="radio" value="No"> No
+                
+                <p><a onClick="mostrarPreg(2)">Siguiente</a></p>
+            </div>
             
-            <button onClick="mostrarPreg('pregunta3')">Si</button>
-            <button onClick="mostrarPreg('pregunta3')">No</button>
-        </div>
-        
-        <div id="pregunta3" class="pregunta">
-            <h2>¿Bebe usted cerveza?</h2>
-            <p>Si es así, la próxima a mi salud.</p>
+            <!-- PREGUNTA 2 -->
+            <div id="pregunta2" class="pregunta" style="display: none">
+                <h2>¿Bebe usted algún té?</h2>
+                <p>Me vale si es manzanilla.</p>
+                
+                <input name="te" type="text">
+                
+                <a onClick="mostrarPreg(3)">Siguiente</a>
+            </div>
             
-            <a href="/"><button>Si</button></a>
-            <a href="/"><button>No</button></a>
-        </div>
-        
+            <!-- PREGUNTA 3 -->
+            <div id="pregunta3" class="pregunta">
+                <h2>¿Bebe usted cerveza?</h2>
+                <p>Indique cuánto le gusta.</p>
+                
+                <select name="cerveza">
+                    <option value="">Nada</option>
+                    <option value="">No demasiado</option>
+                    <option value="">Aceptable</option>
+                    <option value="">Me gusta</option>
+                    <option value="">¿Agua?¿Qué es eso?</option>
+                </select>
+                
+                <input type="submit" value="Predecir">
+            </div>
+        </form>
     </body>
     
     <script>
         function mostrarPreg(x){
+            id = 'pregunta'+x
             pregs = document.getElementsByClassName('pregunta');
             for (let i=0; i < pregs.length; i++){
                 pregs[i].style.display = 'none';
             }
-            document.getElementById(x).style.display = 'block';
+            document.getElementById(id).style.display = 'block';
         }
-        mostrarPreg('pregunta1');
+        mostrarPreg(1);
     </script>
     
 </html>
