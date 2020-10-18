@@ -1,0 +1,25 @@
+[
+{
+    "pregunta":"¿Bebes café?",
+    "texto": "Dime que lo tomas sin leche.",
+    "value": "cafe",
+    "type":"select",
+    "options":[
+        "negro",
+        "con leche",
+        "ninguno"
+    ]
+},
+{
+    "pregunta":"¿Bebes té?",
+    "texto": "Me vale manzanilla.",
+    "value": "te",
+    "type":"text"
+},
+{
+    "pregunta":"¿Bebes cerveza?",
+    "texto": "Indica cuánto te gusta.",
+    "value": "cerveza",
+    "type":"number"
+}
+]

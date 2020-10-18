@@ -2,47 +2,37 @@
 <html>
 
     <head>
-        <link rel="stylesheet" href="/static/main.css">
+        <!-- link rel="stylesheet" href="/static/main.css" -->
     </head>
     <body>
         <form action="/predict" method="post">
-            <!-- PREGUNTA 1 -->
             <h1>Dime, {{ name }}</h1>
-            <div id="pregunta1" class="pregunta">
-                <h2>¿Bebe usted café?</h2>
-                <p>Dígame que lo toma sin leche.</p>
-                
-                <input name="cafe" type="radio" value="si"> Sí
-                <input name="cafe" type="radio" value="No"> No
-                
-                <p><a onClick="mostrarPreg(2)">Siguiente</a></p>
-            </div>
-            
-            <!-- PREGUNTA 2 -->
-            <div id="pregunta2" class="pregunta" style="display: none">
-                <h2>¿Bebe usted algún té?</h2>
-                <p>Me vale si es manzanilla.</p>
-                
-                <input name="te" type="text">
-                
-                <a onClick="mostrarPreg(3)">Siguiente</a>
-            </div>
-            
-            <!-- PREGUNTA 3 -->
-            <div id="pregunta3" class="pregunta">
-                <h2>¿Bebe usted cerveza?</h2>
-                <p>Indique cuánto le gusta.</p>
-                
-                <select name="cerveza">
-                    <option value="">Nada</option>
-                    <option value="">No demasiado</option>
-                    <option value="">Aceptable</option>
-                    <option value="">Me gusta</option>
-                    <option value="">¿Agua?¿Qué es eso?</option>
-                </select>
-                
-                <input type="submit" value="Predecir">
-            </div>
+            {% for pregunta in preguntas: %}
+                <div id="pregunta{{loop.index}}" class="pregunta">
+                    <h2>{{ pregunta.get('pregunta', '¿?') }}</h2>
+                    <p>{{ pregunta.get('texto', '...') }}</p>
+                <p>
+                {# TIPO DE PREGUNTA #}    
+                {% if pregunta.type == 'number' %}
+                    <input type="number" name="{{pregunta.value}}">
+                {% elif pregunta.type == 'select' %}
+                    <select name="{{pregunta.value}}">
+                    {% for option in pregunta.options %}
+                        <option value="{{option}}">{{option}}</option>
+                    {% endfor %}
+                    </select>
+                {% elif pregunta.type == 'text' %}
+                    <input type="text" name="{{pregunta.value}}">
+                {% endif %}
+                </p>
+                {# NAVEGACIÓN DE PREGUNTAS #}    
+                {% if preguntas|length == loop.index %}
+                    <input type="submit" value="Predecir">
+                {% else %}
+                    <a onClick="mostrarPreg({{loop.index+1}})">Siguiente</a>
+                {% endif %}
+                </div>
+            {% endfor %}
         </form>
     </body>
     

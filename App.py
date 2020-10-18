@@ -1,4 +1,5 @@
 from flask import *
+import json
 app = Flask(__name__)
 
 @app.route('/')
@@ -15,13 +16,20 @@ def login():
 @app.route('/proceso', methods = ['GET'])
 def proceso():
     user = request.cookies.get('user')
-    return render_template('proceso.html', name = user)
+    with open('data/preguntas.json','r') as f:
+        pj = json.load(f)
+    return render_template('proceso.html', 
+                           name = user, 
+                           preguntas = pj)
 
 @app.route('/predict', methods = ['POST','GET'])
 def predict():
     print('=== /predict/ ===')
     print(str(request))
-    return 'Not implemented'
+    response = 'Not implemented yet: prediction to be made with<br>'
+    response += str(request.form)
+    response += '<br><a href="\\">Inicio</a>'
+    return response
 
 if __name__ == '__main__':
    app.debug = True
