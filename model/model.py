@@ -13,9 +13,9 @@ def prediction(form):
     dicto['gender_type'] = form['género'] == 'masculino' and 1 or 0
     dicto['birth_date'] = int(form['año'])
     dicto['income_monthly_amount'] = int(form['ingresos'])
-    dicto['deudas_banca'] = form['ingresos'] == 'si' and 1 or 0
-    dicto['banca_movil'] = form['celular'] == 'si' and 1 or 0
-    dicto['Sunat'] = form['deudasunat'] == 'si' and 1 or 0
+    dicto['deudas_banca'] = form['ingresos'] == 'si' and 0 or 1
+    dicto['banca_movil'] = form['celular'] == 'si' and 0 or 1
+    dicto['Sunat'] = form['deudasunat'] == 'si' and 0 or 1
     ended = pd.DataFrame(data=dicto, index=[0])
     result = loaded_model.predict(ended)
     return result[0] == 'Aprobado'
